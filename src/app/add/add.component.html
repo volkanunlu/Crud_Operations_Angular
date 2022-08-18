@@ -1,0 +1,85 @@
+<h1 mat-dialog-title>Objective Title</h1>
+<div mat-dialog-content> 
+            <form [formGroup]="objectiveForm">
+                <h3>Key Results</h3><hr><br>
+                <mat-radio-group aria-label="Select an option" appearance="outline" formControlName="objectiveType">
+                <mat-radio-button value="Project" >Project</mat-radio-button>
+                <mat-radio-button value="Numeric" >Numeric</mat-radio-button>
+                </mat-radio-group>  
+                <!-- First radio button area end -->
+                <br><br>  
+            
+                  <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Keyresult Title 1" formControlName="title">
+                  </mat-form-field> 
+
+                  <!-- Title area End-->
+            
+                  <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="Desc" formControlName="description"></textarea>
+                  </mat-form-field>
+                  
+                  <!-- Description Area End-->
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Period</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate placeholder="Start date" formControlName="periodStart">
+                      <input matEndDate placeholder="End date" formControlName="periodEnd" >
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+
+                  <!-- Period Area End -->
+
+                  <mat-progress-bar mode="determinate" value="40" appearance="outline"></mat-progress-bar>
+                  <br>
+                  <h1 mat-dialog-title appearance="outline">Others</h1> 
+                  
+                  <!-- Progress Area End -->
+                  <mat-tab-group>
+                    <mat-tab label="Progress"></mat-tab>
+                    <mat-tab label="Actions"></mat-tab>
+                    <mat-tab label="Comments"></mat-tab>
+                  </mat-tab-group>
+                  <br>
+
+                  <!-- Tab Group Area End -->
+
+                  <mat-radio-group aria-label="Select an option" appearance="outline" formControlName="progressType">
+                    <mat-radio-button value="Risk" >Risk</mat-radio-button>
+                    <mat-radio-button value="Obstacles" >Obstacles</mat-radio-button>
+                    <mat-radio-button value="Secure" >Secure</mat-radio-button>
+                    </mat-radio-group> 
+                    <br> <br>
+
+                    <!-- Second Radio Button Area End -->
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>My Notes *</mat-label>
+                        <textarea matInput formControlName="notes"></textarea>
+                    <!-- Notes Input Area End -->
+                      </mat-form-field><mat-form-field appearance="outline">
+                        <mat-label>My Risk and Obstacles</mat-label>
+                        <textarea matInput formControlName="riskObs"></textarea>
+
+                    <!-- Risk and Obstacles Area End -->
+                      </mat-form-field><mat-form-field appearance="outline">
+                        <mat-label>What do i better</mat-label>
+                        <textarea matInput formControlName="doBetter"></textarea>
+                      </mat-form-field>
+                    
+                      <!--What do i better Area End  -->
+
+            </form>
+          </div>
+          <div mat-dialog-actions [align]="'end'">
+            <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+            <button mat-raised-button color="primary" (click)="addObjective()">{{actionBtn}}</button>
+
+          </div>
+
+
